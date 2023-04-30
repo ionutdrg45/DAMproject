@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="FinalProject.Views.LogoutPage"
+             Title="Logout">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Label IsVisible="{Binding IsUserLoggedIn}" Grid.Row="0" Text="Are you sure you want to log out?" FontSize="Large" HorizontalOptions="Center" Padding="0,50,10,0" VerticalOptions="Center"/>
+            <Label IsVisible="{Binding IsUserNotLoggedIn}" Grid.Row="0" Text="You are not logged in." FontSize="Large" HorizontalOptions="Center" Padding="0,50,10,0" VerticalOptions="Center"/>
+
+            <StackLayout Grid.Row="1" Padding="10,0,10,0" VerticalOptions="Center">
+                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Margin="10,20">
+                    <Button Text="Back home" Command="{Binding GoBackCommand}" />
+                    <Button IsVisible="{Binding IsUserLoggedIn}" Text="Logout" Command="{Binding LogoutCommand}" />
+                </StackLayout>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

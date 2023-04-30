@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FinalProject.Views.NewAdPage"
+             Shell.PresentationMode="ModalAnimated"
+             Title="New Ad"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:Page.UseSafeArea="true">
+    <ContentPage.Content>
+        <ScrollView Margin="20">
+            <StackLayout Spacing="3" Padding="15">
+                <Label Text="Create your ad" FontSize="Large" FontAttributes="Bold" />
+                <Label Text="Title" FontSize="Medium" />
+                <Entry Text="{Binding BindAdTitle, Mode=TwoWay}" FontSize="Medium" />
+                <Label Text="Description" FontSize="Medium" />
+                <Editor Text="{Binding BindAdDescription}" 
+                    Keyboard="Default"
+                    AutoSize="TextChanges" 
+                    MaxLength="500"
+                    FontSize="Medium"
+                    HeightRequest="120"
+                    VerticalOptions="FillAndExpand"
+                    Margin="10,0,10,0" />   
+                <Label Text="Picture" FontSize="Medium" />
+                <Image x:Name="ImagePreview" Source="{Binding BindAdImageSource}" HeightRequest="200" />
+                <Button Text="Select Image" Command="{Binding SelectImageCommand}" />
+                <Label Text="Location" FontSize="Medium" />
+                <Picker Title="Select County" ItemsSource="{Binding CountiesList}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedCounty}" />
+                <Label Text="Price" FontSize="Medium" />
+                <Entry Text="{Binding BindAdPrice, Mode=TwoWay}" FontSize="Medium" Keyboard="Numeric" />
+
+                <StackLayout Orientation="Horizontal">
+                    <Button Text="Back home" Command="{Binding CancelCommand}" HorizontalOptions="FillAndExpand"></Button>
+                    <Button Text="Create" Command="{Binding SaveCommand}" HorizontalOptions="FillAndExpand"></Button>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

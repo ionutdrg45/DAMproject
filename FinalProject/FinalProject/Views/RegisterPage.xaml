@@ -1,0 +1,38 @@
+﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="FinalProject.Views.RegisterPage"
+             Title="Register">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Label Grid.Row="0" Text="Create an account" FontSize="Large" HorizontalOptions="Center" Padding="0,50,10,0" VerticalOptions="Center"/>
+
+            <StackLayout Grid.Row="1" Padding="10,0,10,0" VerticalOptions="Center">
+                <Label Text="Email" FontSize="Medium"/>
+                <Entry Text="{Binding Email}" Placeholder="Enter email address" />
+                <Label Text="Username" FontSize="Medium"/>
+                <Entry Text="{Binding Username}" Placeholder="Enter an username" />
+                <Label Text="First name" FontSize="Medium"/>
+                <Entry Text="{Binding Firstname}" Placeholder="Enter your first name" />
+                <Label Text="Last name" FontSize="Medium"/>
+                <Entry Text="{Binding Lastname}" Placeholder="Enter your last name" />
+                <Label Text="Password" FontSize="Medium"/>
+                <Entry Text="{Binding Password}" IsPassword="True" Placeholder="Enter password" />
+                <Label Text="Confirm password" FontSize="Medium"/>
+                <Entry Text="{Binding ConfirmPassword}" IsPassword="True" Placeholder="Enter again the password" />
+                <Button VerticalOptions="Center" Text="Register" Command="{Binding RegisterCommand}" />
+                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Margin="10,20">
+                    <Button Text="Back home" Command="{Binding GoBackCommand}" />
+                    <Button Text="Login" Command="{Binding LoginCommand}" />
+                </StackLayout>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

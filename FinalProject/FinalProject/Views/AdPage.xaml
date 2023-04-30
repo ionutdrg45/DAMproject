@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FinalProject.Views.AdPage"
+             Title="{Binding Title}">
+
+    <ScrollView Margin="20">
+        <StackLayout>
+            <StackLayout Orientation="Horizontal" Margin="10">
+                <Label Text="{Binding Ad.Title}" FontSize="Large" VerticalOptions="Center"/>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand">
+                    <Button Text="Back" Command="{Binding GoBackCommand}" />
+                </StackLayout>
+            </StackLayout>
+
+            <Image Source="{Binding Ad.ImageSource}" Aspect="AspectFit" Margin="0,20" HeightRequest="300" />
+
+            <Label Text="{Binding Ad.Description}" Margin="0,20,0,0" />
+            <Label Text="{Binding Ad.Date, StringFormat='Posted on {0:d}'}" Margin="0,10,0,0" />
+            <Label Text="{Binding Ad.Price, StringFormat='Price: {0:C}'}" Margin="0,10,0,0" />
+            <Label Text="{Binding Ad.Location}" Margin="0,10,0,20" />
+
+            <StackLayout Orientation="Horizontal" Margin="0,20,0,0">
+                <Label Text="Contact Information:" FontAttributes="Bold" />
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal" Margin="5">
+                <Label Text="{Binding AdUser.FirstName}" FontSize="Medium" VerticalOptions="Center"/>
+                <Label Text="{Binding AdUser.LastName}" FontSize="Medium" VerticalOptions="Center"/>
+            </StackLayout>
+
+            <Label Text="{Binding AdUser.Email}" Margin="0,5,0,5" />
+            <Label Text="{Binding AdUser.PhoneNumber}" Margin="0,5,0,5" />
+
+            <Button Text="Delete" TextColor="White" BackgroundColor="Red" Command="{Binding DeleteAdCommand}" IsVisible="{Binding IsUserAd}" />
+        </StackLayout>
+    </ScrollView>
+
+</ContentPage>
